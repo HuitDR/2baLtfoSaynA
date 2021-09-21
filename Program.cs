@@ -13,7 +13,7 @@ namespace ConsoleApplication2
         
         public void Cords()
         {
-            Console.WriteLine("Cords: "+ x + y);
+            Console.WriteLine("Координаты: (" + x + ',' + y + ")");
         }
     }
 
@@ -28,7 +28,9 @@ namespace ConsoleApplication2
             b = new Point(_ax, _ay + _size);
             Length = _size;
         }
-        public void Leni() { Console.WriteLine(" " + a.x + + a.y + Environment.NewLine + b.x + b.y + Length + Environment.NewLine); }
+        public void Leni() {
+            Console.WriteLine("Длина сторон: " + Length);
+        }
     }
 
     class Triagle : segment
@@ -59,15 +61,10 @@ namespace ConsoleApplication2
             area = (float)(h * size) / 2;
         }
 
-        public void Area()
-        {
-            Console.WriteLine("Площадь: " + area);
-        }
-
         public void property()
         {
             Console.WriteLine("Площадь: " + area + Environment.NewLine +
-                "Длина сторон: " + size + Environment.NewLine);
+                              "Длина сторон: " + size);
             Console.WriteLine("Координаты: a(" + at.x + ',' + at.y + ")");
             Console.WriteLine("            b(" + bt.x + ',' + bt.y + ")");
             Console.WriteLine("            c(" + ct.x + ',' + ct.y + ")");
@@ -85,9 +82,13 @@ namespace ConsoleApplication2
             Console.WriteLine("Size for A: ");
             segment A = new segment(a.x, a.y, float.Parse(Console.ReadLine()));
             Triagle ABC = new Triagle(A, a.x, a.y, A.Length);
-            Console.WriteLine("==============================================================================");
-            ABC.Area();
-            Console.WriteLine("==============================================================================");
+            Console.WriteLine("=====================точки===========================");
+            ABC.A.a.Cords();
+            ABC.B.a.Cords();
+            ABC.C.a.Cords();
+            Console.WriteLine("=======================Отрезки======================================");
+            ABC.A.Leni();
+            Console.WriteLine("==========================Треугольник==========================================");
             ABC.property();
             Console.WriteLine("==============================================================================");
             Console.ReadLine();
